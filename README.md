@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+# テーブル設計
 
-* System dependencies
+## users テーブル
+| Column             | Type    | Option      |
+| ------------------ | ------- | ----------- |
+| last_name          | string  | null: false |
+| first_name         | string  | null: false |
+| last_name_kana     | string  | null: false |
+| first_name_kana    | string  | null: false |
+| email              | string  | null: false |
+| password           | string  | null: false |
+| birthday           | date    | null: false |
+| admin              | boolean | null: false |
 
-* Configuration
+### Association
 
-* Database creation
+-has_many :shifts
+-has_many :days
 
-* Database initialization
 
-* How to run the test suite
+## shifts テーブル
+| Column          | Type       | Option                         |
+| --------------- | ---------- | ------------------------------ |
+| begin           | time       | null: false                    |
+| finish          | time       | null: false                    |
+| break_in        | time       | null: false                    |
+| break_out       | time       | null: false                    |
+| user            | references | null: false, foreign_key: true | 
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+-belongs_to :user
+-has_many   :days
 
-* ...
+
+## days テーブル
+| Column        | Type       | Option                         |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| shift         | references | null: false, foreign_key: true |
+
+### Association
+
+-belongs_to :user
+-belongs_to :shift
+
+
+
