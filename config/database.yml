@@ -52,3 +52,4 @@ production:
   database: raku_yotei_production
   username: raku_yotei
   password: <%= ENV['RAKU_YOTEI_DATABASE_PASSWORD'] %>
+
