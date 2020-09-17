@@ -27,8 +27,8 @@
 | --------------- | ---------- | ------------------------------ |
 | begin           | time       | null: false                    |
 | finish          | time       | null: false                    |
-| break_in        | time       | null: false                    |
-| break_out       | time       | null: false                    |
+| break_in        | time       |                                |
+| break_out       | time       |                                |
 | user            | references | null: false, foreign_key: true | 
 
 ### Association
